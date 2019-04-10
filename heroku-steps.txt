@@ -1,0 +1,86 @@
+hosted on heroku.
+
+
+--------------------
+Steps followed (roughly)
+------------------------
+
+1. Free account (already have). heroku
+
+OPTIONAL:
+x. github. Created a new repository 'wisemen'; cloned it; pasted my application source code;
+pushed it to master repo.
+https://github.com/mananSingh/wisemen.git
+
+Following the tutorial at https://devcenter.heroku.com/articles/getting-started-with-python
+(Retrieved April 9, 2019)
+
+2. Install heroku cli. 
+  > sudo snap install heroku --classic
+  
+3. Login to heroku cli.
+  > heroku login
+  
+heroku login browser page opens.
+
+4. (locally):
+    > heroku create wisemen
+    
+    Output:
+    Creating ⬢ wisemen... done
+    https://wisemen.herokuapp.com/ | https://git.heroku.com/wisemen.git
+
+
+5. Clone the heroku's wisemen git
+    git clone https://git.heroku.com/wisemen.git
+    
+6. It's empty as of yet.
+    so,
+      Place your application files here.
+      Also:
+        
+   i) Place a requirements.txt in the home directory.
+
+        gunicorn
+        Flask
+        Flask-RESTful
+        numpy
+        gensim
+        scikit-learn
+
+            then,
+            
+    ii) "Procfile": 
+    Its contents are:
+          web: gunicorn main:app --log-level debug
+    
+    
+    Then:
+      > git add *
+      > git commit -m "messg"
+      
+7. Need to add a git remote too.
+    > heroku git:remote -a wisemen
+      
+8. Buildpacks (otherwise, will get error).
+  heroku buildpacks:set heroku/python --app wisemen
+
+On getting error:
+two remotes: origin and heroku.
+Set default git remote:
+  > git config heroku.remote heroku
+
+  
+8. Now push.
+      > git push heroku master
+      
+      
+ref.
+https://coderwall.com/p/pstm1w/deploying-a-flask-app-at-heroku
+
+https://towardsdatascience.com/designing-a-machine-learning-model-and-deploying-it-using-flask-on-heroku-9558ce6bde7b
+
+
+
+
+

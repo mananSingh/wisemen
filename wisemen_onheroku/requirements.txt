@@ -1,0 +1,7 @@
+gunicorn
+Flask
+Flask-RESTful
+numpy
+gensim
+scikit-learn
+paramiko
